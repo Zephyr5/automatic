@@ -1,0 +1,57 @@
+name: 更新workflow
+
+env:
+  TZ: Asia/Shanghai
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+  watch:
+    types: [started]
+  schedule:
+    - cron: '0 */1 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+    - name: Checkout1
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.PAT }}
+        ref: master
+    - name: Checkout2
+      uses: actions/checkout@v2
+      with:
+        repository: ${{ secrets.JD_REPO_NAME }}
+        token: ${{ secrets.PAT }}
+        ref: ${{ secrets.JD_REPO_BRANCH }}
+        path: jd
+    - name: Checkout3
+      uses: actions/checkout@v2
+      with:
+        repository: ${{ secrets.SCRIPTS_PATH }}
+        token: ${{ secrets.SCRIPTS_PAT }}
+        ref: master
+        path: ss
+
+    - name: Install Python
+      run: |
+        sudo apt update && \
+        sudo apt install python3
+
+    - name: update
+      run: |
+        python3 ss/jd/update_jd_workflow.py
+       
+    - name: Commit
+      run: |
+        rm -rf jd || true
+        rm -rf ss || true
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add .
+        git commit -m "update.yml auto commit" || true
+        git push origin master || true
