@@ -1,8 +1,8 @@
-name: 6b12a3e0b0c2e29e13cabca4f8f19417
+name: a5b16823fb49c05f973871bbfc7f2960
 on:
   workflow_dispatch:
   schedule:
-    - cron: '34 1 * * *'
+    - cron: '0 0,13 1-8/1 3 *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -39,9 +39,9 @@ jobs:
           rm -rf .git
           rm -rf .github
           python3 ss/jd/update_jd_scripts.py
-      - name: '运行 【6b12a3e0b0c2e29e13cabca4f8f19417】'
+      - name: '运行 【a5b16823fb49c05f973871bbfc7f2960】'
         run: |
-          node jd_xgyl.js
+          node jd_firecrackers.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE}}
           JD_DEBUG: ${{ secrets.JD_DEBUG}}
