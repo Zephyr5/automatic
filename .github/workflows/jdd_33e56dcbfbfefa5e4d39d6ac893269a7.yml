@@ -1,4 +1,4 @@
-name: fa2d7c699abeb6c15a16bc0f0c3ccf7e
+name: 88a1ef8ca6cfb00c1e3ae03c20956838
 on:
   workflow_dispatch:
   schedule:
@@ -39,7 +39,7 @@ jobs:
           rm -rf .git
           rm -rf .github
           python3 ss/jd/update_jd_scripts.py
-      - name: '运行 【fa2d7c699abeb6c15a16bc0f0c3ccf7e】'
+      - name: '运行 【88a1ef8ca6cfb00c1e3ae03c20956838】'
         run: |
           node jd_bean_change.js
         env:
