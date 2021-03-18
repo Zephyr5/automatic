@@ -2,7 +2,7 @@ name: 5cc8c5fc872a84e1728e52ee08b57e37
 on:
   workflow_dispatch:
   schedule:
-    - cron: '39 23 * * *'
+    - cron: '29 23 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

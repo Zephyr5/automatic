@@ -2,7 +2,7 @@ name: ce72e75c37ebfc1062d72b20e0b0904c
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '23 */2 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

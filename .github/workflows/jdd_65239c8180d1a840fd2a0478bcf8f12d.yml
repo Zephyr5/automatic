@@ -2,7 +2,7 @@ name: 89daf8192aaced48949cbac350c85edc
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 23,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14 * * *'
+    - cron: '10 23,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
