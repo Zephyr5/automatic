@@ -1,8 +1,8 @@
-name: 3066c8a8459da5015653d8e549543e18
+name: a5d734009ec8a190bba89a87faf58ea5
 on:
   workflow_dispatch:
   schedule:
-    - cron: '33 16,19,22,1,4,7,10,13 * * *'
+    - cron: '10 5,6,7,8,9,10,11,12 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -39,9 +39,9 @@ jobs:
           rm -rf .git
           rm -rf .github
           python3 ss/jd/update_jd_scripts.py
-      - name: '运行 【3066c8a8459da5015653d8e549543e18】'
+      - name: '运行 【a5d734009ec8a190bba89a87faf58ea5】'
         run: |
-          node jd_joy_steal.js
+          node jd_joy_run.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE}}
           JD_DEBUG: ${{ secrets.JD_DEBUG}}
